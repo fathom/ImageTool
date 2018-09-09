@@ -15,20 +15,31 @@ class ImageMagick extends ImageService
 
         $image->readImage($this->source);
 
-        $w = $image->getImageWidth();
-        $h = $image->getImageHeight();
+        $source_width = $image->getImageWidth();
+        $source_height = $image->getImageHeight();
 
-        if ($w > $h) {
-            $resize_w = $w * $height / $h;
-            $resize_h = $height;
+        $image_ration = $width / $height;
+        $source_image_ration = $source_width / $source_height;
+
+        if ($image_ration > $source_image_ration)
+        {
+            $h = round(($width / $source_width) * $source_height);
+            $w = $width;
+
+            $x = 0;
+            $y = ($h - $height) / 2;
         }
-        else {
-            $resize_w = $width;
-            $resize_h = $h * $width / $w;
+        else
+        {
+            $w = round(($height / $source_height) * $source_width);
+            $h = $height;
+
+            $x = ($w - $width) / 2;
+            $y = 0;
         }
 
-        $image->resizeImage($resize_w, $resize_h, Imagick::FILTER_CATROM, 1);
-        $image->cropImage($width, $height, ($resize_w - $width) / 2, ($resize_h - $height) / 2);
+        $image->resizeImage($w, $h, Imagick::FILTER_CATROM, 1);
+        $image->cropImage($width, $height, $x, $y);
 
         $image->writeImage($filename_destination);
     }
