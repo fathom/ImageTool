@@ -8,7 +8,7 @@ class TinyPNG extends ImageService
 
     public function __construct(array $options)
     {
-        if (!isset($options['key']) && !empty($options['key'])) {
+        if (!isset($options['key']) || empty($options['key'])) {
             throw new \InvalidArgumentException();
         }
 

@@ -15,11 +15,11 @@ class Immaga extends ImageService
 
     public function __construct(array $options)
     {
-        if (!isset($options['key']) && !empty($options['key'])) {
+        if (!isset($options['key']) || empty($options['key'])) {
             throw new \InvalidArgumentException();
         }
 
-        if (!isset($options['secret']) && !empty($options['secret'])) {
+        if (!isset($options['secret']) || empty($options['secret'])) {
             throw new \InvalidArgumentException();
         }
 
