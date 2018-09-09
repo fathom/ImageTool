@@ -2,6 +2,7 @@
 
 namespace Fathom\Services;
 
+use EmptyApiKeysException;
 use GuzzleHttp\Client;
 use Imagick;
 use stdClass;
@@ -16,11 +17,11 @@ class Immaga extends ImageService
     public function __construct(array $options)
     {
         if (!isset($options['key']) || empty($options['key'])) {
-            throw new \InvalidArgumentException();
+            throw new EmptyApiKeysException();
         }
 
         if (!isset($options['secret']) || empty($options['secret'])) {
-            throw new \InvalidArgumentException();
+            throw new EmptyApiKeysException();
         }
 
         $this->key = $options['key'];

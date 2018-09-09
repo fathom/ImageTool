@@ -2,6 +2,8 @@
 
 namespace Fathom\Services;
 
+use EmptyApiKeysException;
+
 class TinyPNG extends ImageService
 {
     protected $key = null;
@@ -9,7 +11,7 @@ class TinyPNG extends ImageService
     public function __construct(array $options)
     {
         if (!isset($options['key']) || empty($options['key'])) {
-            throw new \InvalidArgumentException();
+            throw new EmptyApiKeysException();
         }
 
         $this->key = $options['key'];
