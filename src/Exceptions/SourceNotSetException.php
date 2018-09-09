@@ -1,6 +1,6 @@
 <?php
 
-namespace Fathom\Exeptions;
+namespace Fathom\Exceptions;
 
 class SourceNotSetException extends \Exception
 {

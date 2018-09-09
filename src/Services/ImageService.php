@@ -2,9 +2,9 @@
 
 namespace Fathom\Services;
 
-use Fathom\Exeptions\FileNotExistException;
-use Fathom\Exeptions\SourceNotSetException;
-use Fathom\Exeptions\WrongImageSizeException;
+use Fathom\Exceptions\FileNotExistException;
+use Fathom\Exceptions\SourceNotSetException;
+use Fathom\Exceptions\WrongImageSizeException;
 
 abstract class ImageService implements ImageServiceInterface
 {

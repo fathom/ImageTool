@@ -2,7 +2,7 @@
 
 namespace Fathom\Services;
 
-use EmptyApiKeysException;
+use Fathom\Exceptions\EmptyApiKeysException;
 use GuzzleHttp\Client;
 use Imagick;
 use stdClass;

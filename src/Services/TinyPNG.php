@@ -2,7 +2,7 @@
 
 namespace Fathom\Services;
 
-use EmptyApiKeysException;
+use Fathom\Exceptions\EmptyApiKeysException;
 
 class TinyPNG extends ImageService
 {
